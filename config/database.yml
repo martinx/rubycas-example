@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  database: cas-demo_development
+  pool: 5
+  username: root
+  password: root
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  database: cas-demo_development
+  <<: *default
+
+test:
+  database: cas-demo_test
+  <<: *default
+
+production:
+  database: cas-demo_production
+  <<: *default
+

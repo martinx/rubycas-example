@@ -1,0 +1,18 @@
+<% if @current_user %>
+    <p>
+      Hi <%= @current_user %>/<%=@cas_extra_attributes[:email]%>! You are logged in.
+      <%= link_to "Logout", session_path(@current_user), method: :delete %>
+    </p>
+<% else %>
+    <div id="welcome-hero-unit" class="hero-unit">
+      <h1>Welcome to the CAS Client Example App</h1>
+
+      <p>
+        This app is used to test a CAS Server and is used as an example of how to build an CAS Client app with rails.
+      </p>
+
+      <p><%= link_to "Login", new_session_path %></p>
+    </div>
+<% end %>
+
+<hr/>
