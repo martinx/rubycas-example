@@ -74,10 +74,21 @@ end
 ```
 class ConsoleController < ApplicationController
   before_action RubyCAS::Filter
-  before_action :init_cas_params
 
   def index
   end
+end
+```
+
+
+* 获取额外的登陆信息(从CAS Server返回)
+
+```
+class ApplicationController < ActionController::Base
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+  before_action :init_cas_params
 
   private
   def init_cas_params
@@ -91,10 +102,9 @@ class ConsoleController < ApplicationController
     end
   end
 end
+
 ```
 
-
-* 获取额外的登陆信息(从CAS Server返回)
 
 ```
 params[:cas_message]
