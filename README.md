@@ -110,4 +110,9 @@ end
 params[:cas_message]
 params[:Cas_mistype]
 ...
+
+## 增加route
+
+```
+resources :sessions
 ```
