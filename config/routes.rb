@@ -1,4 +1,4 @@
 CasDemo::Application.routes.draw do
-  root "dashboard#index"
+  root "console#index"
   resources :sessions
 end

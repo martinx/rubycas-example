@@ -2,16 +2,10 @@ class SessionsController < ApplicationController
   before_action RubyCAS::Filter, :except => :new
 
   def new
-    @lt = RestClient.get("#{Rails.application.config.rubycas.cas_base_url}lt")
+    @lt = RestClient.get("#{Rails.configuration.rubycas.cas_base_url}lt")
   end
-
 
   def destroy
-    RubyCAS::Filter.logout(self, root_url)
-  end
-
-  def root_url
-    uri = URI.parse(self.request.referer)
-    uri.scheme.to_s + '://' + uri.host.to_s + ':' + uri.port.to_s
+    RubyCAS::Filter.logout(self, "#{request.protocol.to_s}#{request.host_with_port}")
   end
 end

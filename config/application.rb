@@ -20,9 +20,7 @@ module CasDemo
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    # cas config
-    # cas login url
-    config.rubycas.login_url = 'http://localhost:5001/sessions/new'
+    config.rubycas.local_login = true
     # case base url
     config.rubycas.cas_base_url = 'http://localhost:10021/'
     # Enable single sign out
