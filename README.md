@@ -102,14 +102,14 @@ class ApplicationController < ActionController::Base
     end
   end
 end
-
 ```
 
+获取内容
 
 ```
 params[:cas_message]
 params[:Cas_mistype]
-...
+```
 
 ## 增加route
 
