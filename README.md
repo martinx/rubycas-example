@@ -50,9 +50,9 @@ config/initializers/session_store.rb
 before_action RubyCAS::Filter
 ```
 
-**不要直接加在ApplicationController上
+**不要直接加在ApplicationController上**
 
-* 修改登入/登出 Controller#action **
+* 修改登入/登出 Controller#action
 
 ```
 class SessionsController < ApplicationController
