@@ -1,7 +1,4 @@
 class SessionsController < ApplicationController
-  # This will allow the user to view the index page without authentication
-  # but will process CAS authentication data if the user already
-  # has an SSO session open.
   before_action RubyCAS::Filter, :except => :new
 
   def new
@@ -11,5 +8,10 @@ class SessionsController < ApplicationController
 
   def destroy
     RubyCAS::Filter.logout(self, root_url)
+  end
+
+  def root_url
+    uri = URI.parse(self.request.referer)
+    uri.scheme.to_s + '://' + uri.host.to_s + ':' + uri.port.to_s
   end
 end

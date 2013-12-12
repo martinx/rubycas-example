@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   before_action RubyCAS::Filter
 
   def index
-    puts session
-    set_current_user_instance
+    @current_user = session[:cas_user]
+    @cas_extra_attributes = session[:cas_extra_attributes]
   end
 end
